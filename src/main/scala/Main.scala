@@ -1,5 +1,17 @@
-@main def hello: Unit = 
-  println("Hello world!")
-  println(msg)
+object Main extends App:
+  import Selector.*
 
-def msg = "I was compiled by Scala 3. :)"
+  case class Test(
+    test1: Test1
+  )
+
+  case class Test1(
+    test2: Test2
+  )
+
+  case class Test2(
+    value: Int
+  )
+
+  println(select[Test](_.test1.test2.value))
+end Main
